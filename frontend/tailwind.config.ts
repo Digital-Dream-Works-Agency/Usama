@@ -14,11 +14,16 @@ export default {
         foreground: "var(--color-foreground)",
         card: "var(--color-card)",
         border: "var(--color-border)",
-        slate: {
-          950: '#0B0E14',
+        muted: "var(--color-muted)",
+        dark: {
+          950: '#030014',
+          900: '#0A0520',
+          800: '#120A30',
         },
         accent: {
-          indigo: '#6366F1',
+          purple: '#A855F7',
+          pink: '#EC4899',
+          blue: '#3B82F6',
           cyan: '#06B6D4',
         },
       },
@@ -29,12 +34,12 @@ export default {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'hero-gradient': 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)',
+        'hero-gradient': 'radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.3), transparent)',
       },
       animation: {
-        'spin-slow': 'spin 20s linear infinite',
+        'spin-slow': 'spin 30s linear infinite',
         'float': 'float 6s ease-in-out infinite',
-        'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
+        'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
       },
       backdropBlur: {
         xs: '2px',
