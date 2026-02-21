@@ -33,23 +33,20 @@ export default function RetainerServices() {
     {
       key: 'marketing',
       href: '/solutions/marketing',
-      gradient: 'from-accent-indigo/20 to-transparent',
-      iconBg: 'bg-accent-indigo/20',
-      iconColor: 'text-accent-indigo',
+      gradient: 'from-accent-purple to-accent-pink',
+      bgGlow: 'bg-accent-purple/20',
     },
     {
       key: 'automation',
       href: '/solutions/automation',
-      gradient: 'from-accent-cyan/20 to-transparent',
-      iconBg: 'bg-accent-cyan/20',
-      iconColor: 'text-accent-cyan',
+      gradient: 'from-accent-blue to-accent-purple',
+      bgGlow: 'bg-accent-blue/20',
     },
     {
       key: 'web',
       href: '/solutions/web',
-      gradient: 'from-purple-500/20 to-transparent',
-      iconBg: 'bg-purple-500/20',
-      iconColor: 'text-purple-400',
+      gradient: 'from-accent-pink to-orange-500',
+      bgGlow: 'bg-accent-pink/20',
     },
   ];
 
@@ -59,8 +56,8 @@ export default function RetainerServices() {
       className="relative py-24 lg:py-32 overflow-hidden"
       data-testid="retainer-services-section"
     >
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-indigo/5 to-transparent" />
+      {/* Background */}
+      <div className="absolute inset-0 grid-pattern opacity-30" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
@@ -70,10 +67,15 @@ export default function RetainerServices() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 lg:mb-20"
         >
+          <span className="text-sm font-semibold text-accent-purple uppercase tracking-widest mb-4 block">
+            Our AI Products
+          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="gradient-text">{t('h2')}</span>
+            Enterprise-Grade <span className="gradient-text">AI Solutions</span>
           </h2>
-          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-accent-indigo to-accent-cyan rounded-full" />
+          <p className="text-muted max-w-2xl mx-auto">
+            Comprehensive AI automation tools designed to transform your business operations and drive exponential growth.
+          </p>
         </motion.div>
 
         {/* Cards Grid */}
@@ -88,41 +90,38 @@ export default function RetainerServices() {
                 initial="hidden"
                 animate={isInView ? 'visible' : 'hidden'}
                 variants={cardVariants}
-                className="group relative glass rounded-2xl p-8 hover:border-accent-indigo/40 transition-all duration-500 cursor-pointer overflow-hidden"
+                className="group relative glass rounded-2xl p-8 card-hover cursor-pointer overflow-hidden"
                 data-testid={`service-card-${card.key}`}
               >
-                {/* Gradient Overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                {/* Glow effect on hover */}
+                <div className={`absolute -inset-px rounded-2xl bg-gradient-to-r ${card.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl`} />
                 
-                {/* Content */}
-                <div className="relative z-10">
+                {/* Card content wrapper */}
+                <div className="relative z-10 bg-dark-900/90 rounded-2xl p-8 -m-8">
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-xl ${card.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className={`w-7 h-7 ${card.iconColor}`} />
+                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.gradient} flex items-center justify-center mb-6 shadow-lg`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-accent-indigo transition-colors">
+                  <h3 className="text-xl font-bold mb-2 group-hover:text-accent-purple transition-colors">
                     {t(`cards.${card.key}.title`)}
                   </h3>
-                  <p className="text-sm text-accent-cyan font-medium mb-4">
+                  <p className="text-sm text-accent-purple font-medium mb-4">
                     {t(`cards.${card.key}.subtitle`)}
                   </p>
 
                   {/* Description */}
-                  <p className="text-sm opacity-70 leading-relaxed mb-6">
+                  <p className="text-sm text-muted leading-relaxed mb-6">
                     {t(`cards.${card.key}.description`)}
                   </p>
 
-                  {/* CTA Arrow */}
-                  <div className="flex items-center gap-2 text-sm font-medium text-accent-indigo opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                    <span>Explore</span>
+                  {/* CTA */}
+                  <div className="flex items-center gap-2 text-sm font-semibold text-accent-purple group-hover:gap-3 transition-all">
+                    <span>Learn more</span>
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-
-                {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-accent-indigo/10 to-transparent rounded-bl-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </motion.a>
             );
           })}
