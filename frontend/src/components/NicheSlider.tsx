@@ -4,13 +4,12 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, FreeMode } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { Truck, HeartPulse, Briefcase, ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
-import 'swiper/css/free-mode';
 
 const niches = [
   {
@@ -19,7 +18,7 @@ const niches = [
     href: '/solutions/logistics',
     image: '/assets/tampa-logistics-marketing-retainers.webp',
     imageAlt: 'Growth marketing dashboards for Florida logistics firms',
-    color: 'from-orange-500 to-amber-500',
+    gradient: 'from-orange-500 to-amber-500',
     placeholder: 'https://images.unsplash.com/photo-1680992044138-ce4864c2b962?w=800&h=500&fit=crop',
   },
   {
@@ -28,7 +27,7 @@ const niches = [
     href: '/solutions/healthcare',
     image: '/assets/florida-b2b-ai-automation-systems.webp',
     imageAlt: 'AI automation systems for Florida B2B companies',
-    color: 'from-emerald-500 to-teal-500',
+    gradient: 'from-emerald-500 to-teal-500',
     placeholder: 'https://images.unsplash.com/photo-1680992046615-065f58bcb4d8?w=800&h=500&fit=crop',
   },
   {
@@ -37,7 +36,7 @@ const niches = [
     href: '/solutions/professional-services',
     image: '/assets/miami-enterprise-web-projects.webp',
     imageAlt: 'High-speed enterprise web development architecture',
-    color: 'from-blue-500 to-indigo-500',
+    gradient: 'from-accent-purple to-accent-pink',
     placeholder: 'https://images.unsplash.com/photo-1704188646899-4198ab26341c?w=800&h=500&fit=crop',
   },
 ];
@@ -53,9 +52,6 @@ export default function NicheSlider() {
       className="relative py-24 lg:py-32 overflow-hidden"
       data-testid="niche-slider-section"
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent-cyan/5 to-transparent" />
-      
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -64,10 +60,15 @@ export default function NicheSlider() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
+          <span className="text-sm font-semibold text-accent-purple uppercase tracking-widest mb-4 block">
+            Industry Solutions
+          </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            <span className="gradient-text">{t('h2')}</span>
+            Dominating <span className="gradient-text">Complex Markets</span>
           </h2>
-          <div className="w-24 h-1 mx-auto bg-gradient-to-r from-accent-indigo to-accent-cyan rounded-full" />
+          <p className="text-muted max-w-2xl mx-auto">
+            Specialized AI solutions tailored for the unique challenges of your industry
+          </p>
         </motion.div>
 
         {/* Swiper Slider */}
@@ -77,12 +78,11 @@ export default function NicheSlider() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Swiper
-            modules={[Pagination, Autoplay, FreeMode]}
+            modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
             pagination={{
               clickable: true,
-              dynamicBullets: true,
             }}
             autoplay={{
               delay: 5000,
@@ -107,7 +107,7 @@ export default function NicheSlider() {
                 <SwiperSlide key={niche.key}>
                   <a
                     href={niche.href}
-                    className="group block relative overflow-hidden rounded-2xl glass h-[400px] cursor-pointer"
+                    className="group block relative overflow-hidden rounded-2xl h-[420px] cursor-pointer"
                     data-testid={`niche-slide-${niche.key}`}
                   >
                     {/* Background Image */}
@@ -117,37 +117,37 @@ export default function NicheSlider() {
                         alt={niche.imageAlt}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
-                        className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
+                        className="object-cover opacity-50 group-hover:opacity-70 group-hover:scale-110 transition-all duration-700"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/90 to-dark-950/40" />
                     </div>
+
+                    {/* Gradient border on hover */}
+                    <div className={`absolute inset-0 rounded-2xl border border-transparent group-hover:border-accent-purple/50 transition-colors duration-500`} />
 
                     {/* Content */}
                     <div className="relative h-full flex flex-col justify-end p-8">
                       {/* Icon Badge */}
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${niche.color} flex items-center justify-center mb-4 shadow-lg`}>
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${niche.gradient} flex items-center justify-center mb-5 shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-7 h-7 text-white" />
                       </div>
 
                       {/* Title */}
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-accent-cyan transition-colors">
+                      <h3 className="text-2xl font-bold mb-3 group-hover:text-accent-purple transition-colors">
                         {t(`slides.${niche.key}.title`)}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm opacity-80 leading-relaxed mb-4">
+                      <p className="text-muted leading-relaxed mb-5">
                         {t(`slides.${niche.key}.description`)}
                       </p>
 
                       {/* CTA */}
-                      <div className="flex items-center gap-2 text-accent-cyan font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                        <span>Learn More</span>
-                        <ArrowRight className="w-4 h-4" />
+                      <div className="flex items-center gap-2 font-semibold text-accent-purple opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <span>Explore Solution</span>
+                        <ArrowRight className="w-5 h-5" />
                       </div>
                     </div>
-
-                    {/* Decorative Gradient Border */}
-                    <div className={`absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-br ${niche.color} opacity-0 group-hover:opacity-20 transition-opacity duration-500 pointer-events-none`} style={{ WebkitMask: 'linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'destination-out' }} />
                   </a>
                 </SwiperSlide>
               );
