@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, Suspense } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Float, MeshDistortMaterial } from '@react-three/drei';
+import { Float, MeshDistortMaterial, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
 
 interface MeshProps {
@@ -11,87 +11,133 @@ interface MeshProps {
 
 function InteractiveMesh({ mousePosition }: MeshProps) {
   const meshRef = useRef<THREE.Mesh>(null);
+  const glowRef = useRef<THREE.Mesh>(null);
   const { viewport } = useThree();
 
-  const geometry = useMemo(() => {
-    return new THREE.IcosahedronGeometry(2, 4);
-  }, []);
-
   useFrame((state) => {
-    if (!meshRef.current) return;
+    if (!meshRef.current || !glowRef.current) return;
     
     const targetX = (mousePosition.current.x * viewport.width) / 4;
     const targetY = (mousePosition.current.y * viewport.height) / 4;
     
+    // Main sphere rotation
     meshRef.current.rotation.x = THREE.MathUtils.lerp(
       meshRef.current.rotation.x,
-      targetY * 0.3 + state.clock.elapsedTime * 0.1,
-      0.05
+      targetY * 0.2 + state.clock.elapsedTime * 0.05,
+      0.03
     );
     meshRef.current.rotation.y = THREE.MathUtils.lerp(
       meshRef.current.rotation.y,
-      targetX * 0.3 + state.clock.elapsedTime * 0.15,
-      0.05
+      targetX * 0.2 + state.clock.elapsedTime * 0.08,
+      0.03
     );
+    
+    // Glow follows with offset
+    glowRef.current.rotation.x = meshRef.current.rotation.x * 0.5;
+    glowRef.current.rotation.y = meshRef.current.rotation.y * 0.5;
+    
+    // Subtle position movement
     meshRef.current.position.x = THREE.MathUtils.lerp(
       meshRef.current.position.x,
-      targetX * 0.5,
-      0.03
+      targetX * 0.3,
+      0.02
     );
     meshRef.current.position.y = THREE.MathUtils.lerp(
       meshRef.current.position.y,
-      targetY * 0.5,
-      0.03
+      targetY * 0.3,
+      0.02
     );
   });
 
   return (
-    <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
-      <mesh ref={meshRef} geometry={geometry} scale={1.2}>
-        <MeshDistortMaterial
-          color="#6366F1"
-          attach="material"
-          distort={0.3}
-          speed={2}
-          roughness={0.2}
-          metalness={0.8}
-          transparent
-          opacity={0.6}
-        />
-      </mesh>
-      <mesh geometry={geometry} scale={1.4}>
+    <group position={[0.5, 0, 0]}>
+      {/* Main distorted sphere */}
+      <Float speed={1.2} rotationIntensity={0.1} floatIntensity={0.3}>
+        <mesh ref={meshRef} scale={2.2}>
+          <icosahedronGeometry args={[1, 8]} />
+          <MeshDistortMaterial
+            color="#A855F7"
+            attach="material"
+            distort={0.25}
+            speed={1.5}
+            roughness={0.15}
+            metalness={0.9}
+            transparent
+            opacity={0.85}
+          />
+        </mesh>
+      </Float>
+      
+      {/* Outer glow sphere */}
+      <mesh ref={glowRef} scale={2.8}>
+        <sphereGeometry args={[1, 32, 32]} />
         <meshBasicMaterial
-          color="#06B6D4"
-          wireframe
+          color="#EC4899"
           transparent
-          opacity={0.15}
+          opacity={0.08}
+          side={THREE.BackSide}
         />
       </mesh>
-    </Float>
+      
+      {/* Inner energy core */}
+      <Float speed={2} rotationIntensity={0.3} floatIntensity={0.5}>
+        <mesh scale={1.2}>
+          <octahedronGeometry args={[1, 0]} />
+          <meshBasicMaterial
+            color="#3B82F6"
+            wireframe
+            transparent
+            opacity={0.3}
+          />
+        </mesh>
+      </Float>
+      
+      {/* Particle ring */}
+      <mesh rotation={[Math.PI / 2, 0, 0]} scale={3}>
+        <torusGeometry args={[1, 0.01, 16, 100]} />
+        <meshBasicMaterial
+          color="#A855F7"
+          transparent
+          opacity={0.4}
+        />
+      </mesh>
+    </group>
   );
 }
 
 function MobileGlow() {
   const meshRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
-    if (!meshRef.current) return;
-    meshRef.current.rotation.x = state.clock.elapsedTime * 0.1;
-    meshRef.current.rotation.y = state.clock.elapsedTime * 0.15;
+    if (!meshRef.current || !ringRef.current) return;
+    meshRef.current.rotation.x = state.clock.elapsedTime * 0.05;
+    meshRef.current.rotation.y = state.clock.elapsedTime * 0.08;
+    ringRef.current.rotation.z = state.clock.elapsedTime * 0.1;
   });
 
   return (
-    <Float speed={2} rotationIntensity={0.3} floatIntensity={0.8}>
-      <mesh ref={meshRef}>
-        <icosahedronGeometry args={[1.5, 2]} />
+    <group position={[0.5, 0, 0]}>
+      <Float speed={1.5} rotationIntensity={0.2} floatIntensity={0.5}>
+        <mesh ref={meshRef} scale={1.8}>
+          <icosahedronGeometry args={[1, 2]} />
+          <meshBasicMaterial
+            color="#A855F7"
+            wireframe
+            transparent
+            opacity={0.5}
+          />
+        </mesh>
+      </Float>
+      <mesh ref={ringRef} rotation={[Math.PI / 2, 0, 0]} scale={2.5}>
+        <torusGeometry args={[1, 0.02, 16, 64]} />
         <meshBasicMaterial
-          color="#6366F1"
-          wireframe
+          color="#EC4899"
           transparent
-          opacity={0.4}
+          opacity={0.3}
         />
       </mesh>
-    </Float>
+    </group>
   );
 }
 
@@ -108,9 +154,10 @@ function Hero3DCanvas({ isMobile, mousePosition }: Hero3DCanvasProps) {
       dpr={[1, 2]}
       style={{ background: 'transparent' }}
     >
-      <ambientLight intensity={0.4} />
-      <pointLight position={[10, 10, 10]} intensity={1} color="#6366F1" />
-      <pointLight position={[-10, -10, -10]} intensity={0.5} color="#06B6D4" />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#A855F7" />
+      <pointLight position={[-10, -10, -10]} intensity={0.8} color="#EC4899" />
+      <pointLight position={[0, -10, 5]} intensity={0.5} color="#3B82F6" />
       <Suspense fallback={null}>
         {isMobile ? (
           <MobileGlow />
