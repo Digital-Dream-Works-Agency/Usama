@@ -1,19 +1,19 @@
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import RetainerServices from "@/components/RetainerServices";
-import NicheSlider from "@/components/NicheSlider";
-import SocialProof from "@/components/SocialProof";
-import Footer from "@/components/Footer";
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
+import Services from '@/components/Services'
+import Testimonials from '@/components/Testimonials'
+import Contact from '@/components/Contact'
+import Footer from '@/components/Footer'
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="relative min-h-screen bg-background noise-overlay" data-testid="homepage">
-      <Header />
-      <HeroSection />
-      <RetainerServices />
-      <NicheSlider />
-      <SocialProof />
+    <main className="relative" data-testid="homepage">
+      <Navbar />
+      <Hero />
+      <Services />
+      <Testimonials />
+      <Contact />
       <Footer />
     </main>
-  );
+  )
 }
