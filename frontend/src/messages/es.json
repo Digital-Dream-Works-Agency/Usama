@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "title": "B2B AI Automation & Marketing Agency in Florida | Digital Dream Works",
+    "description": "Florida's premier agency for enterprise marketing retainers, AI automation, and high-speed web projects. Scale your operations with DDW Agency."
+  },
+  "header": {
+    "solutions": "Solutions",
+    "retainers": "Retainers",
+    "labs": "Labs",
+    "elitePortfolio": "Elite Portfolio"
+  },
+  "hero": {
+    "h1": "Florida's Growth Infrastructure for Modern Enterprise.",
+    "subtitle": "We don't just run campaigns. We build AI-driven marketing systems, high-speed web architecture, and operational retainers that scale your revenue.",
+    "cta": {
+      "primary": "Audit Your Systems",
+      "secondary": "View Case Studies"
+    }
+  },
+  "retainerEngine": {
+    "h2": "Strategic Retainers Built for Compounding Growth",
+    "cards": {
+      "marketing": {
+        "title": "Growth Marketing",
+        "subtitle": "Data-Driven Marketing Systems",
+        "description": "Full-funnel inbound and outbound infrastructure targeting high-value B2B accounts."
+      },
+      "automation": {
+        "title": "AI Automation",
+        "subtitle": "Operational AI Integration",
+        "description": "Reclaim hundreds of hours a month. We automate your back-office, lead-routing, and client onboarding."
+      },
+      "web": {
+        "title": "Web Infrastructure",
+        "subtitle": "High-Velocity Web Projects",
+        "description": "Next.js & Vercel-hosted architecture designed for technical SEO dominance and zero-latency conversions."
+      }
+    }
+  },
+  "niches": {
+    "h2": "Dominating Complex Florida Markets",
+    "slides": {
+      "logistics": {
+        "title": "Logistics & Fleet Ops",
+        "description": "Dispatch automation and B2B freight marketing."
+      },
+      "healthcare": {
+        "title": "Healthcare & Clinical",
+        "description": "Secure, high-compliance patient acquisition systems."
+      },
+      "professional": {
+        "title": "Professional Services",
+        "description": "Authority-led lead generation for law and finance."
+      }
+    }
+  },
+  "socialProof": {
+    "h2": "Results That Compound",
+    "metrics": {
+      "pipeline": {
+        "value": "300%",
+        "label": "Pipeline Growth"
+      },
+      "hours": {
+        "value": "40+",
+        "label": "Hours Saved Weekly"
+      },
+      "rankings": {
+        "value": "Page 1",
+        "label": "Local Florida Rankings"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Building Florida's most resilient growth infrastructure.",
+    "location": "Headquartered in St. Petersburg, Florida (USA) with strategic operations in Rome, Lazio (Italy).",
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "compliance": "Compliance"
+    },
+    "copyright": "© 2024 Digital Dream Works Agency LLC. All rights reserved."
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode"
+  }
+}
