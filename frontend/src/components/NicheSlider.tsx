@@ -116,6 +116,7 @@ export default function NicheSlider() {
                         src={niche.placeholder}
                         alt={niche.imageAlt}
                         fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                         className="object-cover opacity-40 group-hover:opacity-60 group-hover:scale-105 transition-all duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
