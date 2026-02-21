@@ -51,8 +51,8 @@ export default function HeroSection() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8"
             data-testid="hero-h1"
           >
-            <span className="block">{t('h1').split(' ').slice(0, 2).join(' ')}</span>
-            <span className="gradient-text">{t('h1').split(' ').slice(2).join(' ')}</span>
+            <span className="block">Florida&apos;s Growth</span>
+            <span className="gradient-text">Infrastructure for Modern Enterprise.</span>
           </motion.h1>
 
           {/* Subtitle */}
