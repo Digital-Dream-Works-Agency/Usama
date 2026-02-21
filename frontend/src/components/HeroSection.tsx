@@ -25,7 +25,8 @@ export default function HeroSection() {
       <Hero3D />
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/30 to-background pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background pointer-events-none z-10" />
+      <div className="absolute inset-0 bg-background/40 dark:bg-transparent pointer-events-none z-10" />
       <div className="absolute inset-0 bg-hero-gradient pointer-events-none z-10" />
 
       {/* Content */}
