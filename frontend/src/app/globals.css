@@ -185,10 +185,8 @@ html { scroll-behavior: smooth; }
   background-clip: text !important;
 }
 
-/* Light mode metric cards gradient text */
-.light div[class*="text-7xl"][class*="bg-gradient-to-r"],
-.light div[class*="text-8xl"][class*="bg-gradient-to-r"],
-.light div[class*="text-4xl"][class*="bg-gradient-to-r"] {
+/* Light mode metric cards gradient text - all sizes */
+.light div[class*="bg-gradient-to-r"][class*="bg-clip-text"][class*="text-transparent"] {
   background: linear-gradient(to right, #7c3aed, #2563eb, #6d28d9) !important;
   -webkit-background-clip: text !important;
   -webkit-text-fill-color: transparent !important;
