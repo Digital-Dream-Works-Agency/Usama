@@ -50,6 +50,7 @@ Build a production-ready premium Next.js homepage for Digital Dream Works Agency
 - Dropdown navigation menus
 - Mobile-responsive with hamburger menu
 - Smooth slide transitions with AnimatePresence
+- **Light/Dark mode toggle** with theme persistence
 
 ## Contact Info
 - Email: hello@digitaldreamworksagency.com
@@ -69,6 +70,7 @@ Build a production-ready premium Next.js homepage for Digital Dream Works Agency
 - [x] 4 Industry pages
 - [x] Navigation with dropdown menus
 - [x] Mobile responsive design
+- [x] **Light/Dark mode toggle**
 
 ### P1 (Post-Launch)
 - [ ] Connect CTA buttons to Calendly/booking system
