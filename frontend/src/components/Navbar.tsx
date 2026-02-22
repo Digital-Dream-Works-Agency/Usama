@@ -188,8 +188,11 @@ export default function Navbar() {
 
               {/* Other Links */}
               <div className="pt-4 border-t border-white/10 space-y-2">
-                <Link href="/#portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2">
+                <Link href="/portfolio" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2">
                   Portfolio
+                </Link>
+                <Link href="/labs" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2">
+                  Labs
                 </Link>
                 <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2">
                   Contact
