@@ -175,12 +175,22 @@ html { scroll-behavior: smooth; }
   color: white !important;
 }
 
-/* Fix hero gradient text in light mode */
-.light .bg-gradient-to-r.bg-clip-text {
-  filter: brightness(0.85) saturate(1.2);
+/* Light mode gradient text - make it darker and more vivid */
+.light .hero-gradient-text,
+.light h2 span[class*="bg-gradient-to-r"][class*="bg-clip-text"],
+.light h1 span[class*="bg-gradient-to-r"][class*="bg-clip-text"] {
+  background: linear-gradient(to right, #7c3aed, #2563eb, #6d28d9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
 
-/* Ensure gradient text metrics are visible in light mode */
-.light [class*="bg-gradient-to-r"][class*="bg-clip-text"][class*="text-transparent"] {
-  filter: brightness(0.8) saturate(1.3);
+/* Light mode metric cards gradient text */
+.light div[class*="text-7xl"][class*="bg-gradient-to-r"],
+.light div[class*="text-8xl"][class*="bg-gradient-to-r"],
+.light div[class*="text-4xl"][class*="bg-gradient-to-r"] {
+  background: linear-gradient(to right, #7c3aed, #2563eb, #6d28d9) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
 }
