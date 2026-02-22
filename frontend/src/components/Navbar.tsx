@@ -123,8 +123,11 @@ export default function Navbar() {
               </AnimatePresence>
             </div>
 
-            <Link href="/#portfolio" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+            <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Portfolio
+            </Link>
+            <Link href="/labs" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
+              Labs
             </Link>
             <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Contact
