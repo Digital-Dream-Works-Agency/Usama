@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import PremiumSlider from '@/components/PremiumSlider'
+import TrustBar from '@/components/TrustBar'
 import HookSection from '@/components/HookSection'
 import Portfolio from '@/components/Portfolio'
 import Services from '@/components/Services'
@@ -11,6 +12,7 @@ export default function Home() {
     <main className="relative" data-testid="homepage">
       <Navbar />
       <PremiumSlider />
+      <TrustBar />
       <HookSection />
       <Portfolio />
       <Services />
