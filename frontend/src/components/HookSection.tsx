@@ -25,22 +25,22 @@ export default function HookSection() {
 
             {/* Main Statement */}
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
-              We Don&apos;t Build <span className="gradient-text">Generic Solutions</span>
+              If Your Agency Talks About <span className="gradient-text">&quot;Brand Awareness&quot;</span>
               <br />
-              We Architect <span className="gradient-text">Competitive Advantages</span>
+              Instead of <span className="gradient-text">Revenue Per Dollar Spent</span>, Fire Them
             </h2>
 
             {/* Supporting Text */}
             <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              When off-the-shelf software can&apos;t deliver the results you need, we build custom systems that become your unfair advantage. AI-powered automation, marketing infrastructure, and full-stack platforms that competitors can&apos;t replicate.
+              We manage $683K/month in ad spend across Google Ads and Meta. Our clients see 300-600% ROAS because we optimize for revenue, not vanity metrics. If you&apos;re spending $20K+/month on ads and not seeing profitable returns, we should talk.
             </p>
 
             {/* Value Props */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto pt-8">
               {[
-                { label: 'Premium Positioning', value: 'No Commodity Work' },
-                { label: 'Technical Excellence', value: 'Production-Grade Code' },
-                { label: 'Speed to Market', value: 'Weeks, Not Months' },
+                { label: 'Minimum Ad Spend', value: '$20K/month clients only' },
+                { label: 'Our Fee Structure', value: '$3K-$5K setup + 10-15% of spend' },
+                { label: 'Availability', value: '3 spots open in March 2026' },
               ].map((item, index) => (
                 <motion.div
                   key={item.label}
@@ -72,10 +72,12 @@ export default function HookSection() {
               <a
                 href="#contact"
                 className="group inline-flex items-center space-x-2 bg-gradient-to-r from-premium-600 to-electric-600 hover:from-premium-700 hover:to-electric-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 hover:scale-105 premium-glow"
+                data-testid="hook-cta"
               >
-                <span>Let&apos;s Build Your Advantage</span>
+                <span>Book Free Ad Account Audit</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
+              <p className="text-sm text-gray-500 mt-4">First audit is free. We&apos;ll show you exactly where your money is leaking.</p>
             </motion.div>
           </motion.div>
         </div>
