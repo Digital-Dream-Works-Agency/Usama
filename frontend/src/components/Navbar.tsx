@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Sparkles, ChevronDown, TrendingUp, Code, Cpu, Zap, ShoppingCart, Heart, Truck, Shirt } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import ThemeToggle from './ThemeToggle'
 
 const services = [
   { name: 'Performance Marketing', href: '/services/performance-marketing', icon: TrendingUp, desc: 'Google & Meta Ads' },
@@ -128,7 +129,8 @@ export default function Navbar() {
             <Link href="/#contact" className="text-gray-300 hover:text-white transition-colors text-sm font-medium">
               Contact
             </Link>
-            <Link href="/#contact" className="bg-gradient-to-r from-premium-600 to-electric-600 hover:opacity-90 text-white px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 premium-glow" data-testid="cta-btn">
+            <ThemeToggle />
+            <Link href="/#contact" className="bg-gradient-to-r from-premium-600 to-electric-600 hover:opacity-90 text-white! px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 hover:scale-105 premium-glow" data-testid="cta-btn">
               Let&apos;s Talk
             </Link>
           </div>
