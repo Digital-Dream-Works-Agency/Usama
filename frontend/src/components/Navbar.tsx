@@ -191,9 +191,13 @@ export default function Navbar() {
                 <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2">
                   Contact
                 </Link>
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-gray-300 text-base font-medium">Theme</span>
+                  <ThemeToggle />
+                </div>
               </div>
 
-              <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-gradient-to-r from-premium-600 to-electric-600 text-white px-6 py-3 rounded-xl text-center font-semibold mt-4">
+              <Link href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full bg-gradient-to-r from-premium-600 to-electric-600 text-white! px-6 py-3 rounded-xl text-center font-semibold mt-4">
                 Let&apos;s Talk
               </Link>
             </div>
