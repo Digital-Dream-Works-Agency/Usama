@@ -1,92 +1,91 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ArrowUpRight, TrendingUp, Zap, Layers, ShoppingCart } from 'lucide-react'
+import { ExternalLink, ArrowUpRight, TrendingUp, Zap, ShoppingCart, Cpu } from 'lucide-react'
 
 const caseStudies = [
   {
     icon: TrendingUp,
-    client: 'Enterprise B2B SaaS',
-    industry: 'Software / Sales Tech',
-    title: 'Lead Generation System That Scaled to $2.4M Pipeline',
-    challenge: 'Mid-market SaaS struggling with low-quality leads and 12% MQL-to-SQL conversion. Sales team overwhelmed with unqualified prospects.',
+    client: 'Italian Fashion E-Commerce',
+    industry: 'E-Commerce • Italy/EU',
+    title: '€69.7K Ad Spend Generated 418K Purchases at 600% ROAS',
+    challenge: 'Italian fashion retailer spending €20K/month on Google Shopping with inconsistent 180-250% ROAS. Needed to scale profitably to €70K/month without margin erosion.',
     solution: [
-      'Built AI-powered lead scoring system with behavioral tracking',
-      'Implemented multi-touch nurture sequences across 5 channels',
-      'Created custom analytics dashboard for sales/marketing alignment',
-      'Integrated with existing CRM (Salesforce) and marketing automation (HubSpot)',
+      'Restructured entire Google Shopping feed with Italian-optimized product titles',
+      'Implemented tiered bidding strategy by product margin and seasonality',
+      'Created separate campaigns for high-AOV vs. volume products',
+      'Integrated with existing Italian e-commerce platform (custom API)',
     ],
     results: [
-      { metric: '2,400', label: 'Qualified leads in 90 days' },
-      { metric: '47%', label: 'MQL-to-SQL conversion (up from 12%)' },
-      { metric: '$2.4M', label: 'Pipeline generated' },
-      { metric: '8 weeks', label: 'From kickoff to launch' },
+      { metric: '418K', label: 'Purchases (4 months)' },
+      { metric: '600%', label: 'Peak ROAS' },
+      { metric: '€69.7K', label: 'Monthly spend' },
+      { metric: '1.1K', label: 'Daily conversions' },
     ],
-    tags: ['Marketing Automation', 'AI Integration', 'Custom CRM'],
+    tags: ['Google Ads', 'E-Commerce', 'Italy'],
     gradient: 'from-premium-600 to-electric-600',
   },
   {
     icon: ShoppingCart,
-    client: 'Italian Fashion Brand',
-    industry: 'E-Commerce / Retail',
-    title: '340% Revenue Growth for Direct-to-Consumer Fashion',
-    challenge: 'Italian luxury fashion brand had beautiful products but poor online presence. 68% cart abandonment, slow site, no personalization.',
+    client: 'US Healthcare Clinic',
+    industry: 'Healthcare • USA',
+    title: '15,594 Patient Appointments Booked at $0.09 CPC',
+    challenge: 'Medical clinic in competitive US market struggling with $3+ CPC on Google Ads. Needed cost-effective patient acquisition across 12 states.',
     solution: [
-      'Complete e-commerce platform rebuild (headless Shopify + custom frontend)',
-      'AI-powered product recommendations and personalization engine',
-      'Abandoned cart recovery system with SMS + email sequences',
-      'Performance marketing infrastructure (Meta, Google, TikTok)',
+      'Built location-specific landing pages for each service line',
+      'Implemented appointment booking integration with Google Ads tracking',
+      'Optimized for "near me" searches with geo-targeted bid adjustments',
+      'Created remarketing campaigns for incomplete bookings',
     ],
     results: [
-      { metric: '340%', label: 'Revenue increase in 6 months' },
-      { metric: '€1.2M', label: 'Additional annual revenue' },
-      { metric: '32%', label: 'Cart abandonment (down from 68%)' },
-      { metric: '2.8s', label: 'Page load time (down from 8.4s)' },
+      { metric: '15,594', label: 'Conversions' },
+      { metric: '$0.09', label: 'Average CPC' },
+      { metric: '4.58%', label: 'CTR' },
+      { metric: '$6.3K', label: 'Total spend' },
     ],
-    tags: ['E-Commerce', 'Personalization', 'Performance Marketing'],
+    tags: ['Google Ads', 'Healthcare', 'USA'],
     gradient: 'from-orange-500 to-premium-600',
   },
   {
-    icon: Zap,
-    client: 'Milan Logistics Company',
-    industry: 'Logistics / Transportation',
-    title: 'AI Dispatch System Saved €180K Annually',
-    challenge: 'Manual dispatch process causing 92% error rate, driver miscommunication, €200K+ in annual losses from inefficient routing.',
+    icon: Cpu,
+    client: 'European E-Commerce',
+    industry: 'E-Commerce • EU',
+    title: '317 Purchases via Meta Ads at €11.52 Cost Per Sale',
+    challenge: 'Multi-country EU e-commerce store struggling with Meta Ads profitability. High cart abandonment, low ROAS across 5 markets.',
     solution: [
-      'Voice-activated AI dispatch system (custom voice AI + route optimization)',
-      'Real-time fleet tracking with predictive maintenance alerts',
-      'Mobile app for drivers with turn-by-turn navigation',
-      'Integration with existing ERP and accounting systems',
+      'Built retargeting campaigns with dynamic product ads in 5 languages',
+      'Created lookalike audiences based on high-LTV customer segments',
+      'Implemented abandoned cart recovery via Meta Messenger',
+      'Optimized creative testing framework (10+ variants per product)',
     ],
     results: [
-      { metric: '€180K', label: 'Annual cost savings' },
-      { metric: '92%', label: 'Reduction in dispatch errors' },
-      { metric: '34%', label: 'Increase in daily routes completed' },
-      { metric: '4 weeks', label: 'From concept to production' },
+      { metric: '317', label: 'Purchases' },
+      { metric: '€11.52', label: 'Cost/purchase' },
+      { metric: '6,190', label: 'Add-to-carts' },
+      { metric: '3.61%', label: 'CTR' },
     ],
-    tags: ['AI Automation', 'Custom Software', 'Voice AI'],
+    tags: ['Meta Ads', 'E-Commerce', 'EU'],
     gradient: 'from-electric-500 to-premium-600',
   },
   {
-    icon: Layers,
-    client: 'Mid-Market B2B Company',
-    industry: 'Professional Services',
-    title: 'End-to-End Operating System in 4 Weeks Saved $400K',
-    challenge: 'Growing professional services firm drowning in operational chaos. Using 12 different tools, no integration, massive inefficiency.',
+    icon: Zap,
+    client: 'US Therapy Practice',
+    industry: 'Mental Health • USA',
+    title: '517 High-Intent Phone Calls for Therapy Services',
+    challenge: 'Therapy practice needed qualified calls from people actively seeking help. Standard lead gen campaigns were attracting low-intent browsers.',
     solution: [
-      'AI customer support system (voice + chat) handling 80% of inquiries',
-      'HR automation platform for employee onboarding, leave, performance',
-      'AI proposal generator creating custom proposals in under 2 minutes',
-      'Lead reactivation workflow recovering dormant opportunities',
-      'Centralized management dashboard connecting all systems',
+      'Call-only Google Ads campaigns targeting crisis + immediate-need keywords',
+      'Custom call tracking integration with practice management system',
+      'Optimized for phone impression share in high-intent moments',
+      'A/B tested ad copy focused on immediate availability',
     ],
     results: [
-      { metric: '$400K', label: 'Revenue recovered/saved annually' },
-      { metric: '4 weeks', label: 'Full deployment timeline' },
-      { metric: '65%', label: 'Reduction in operational overhead' },
-      { metric: '3x', label: 'Increase in proposal output' },
+      { metric: '517', label: 'Phone calls' },
+      { metric: '$34.70', label: 'Cost per call' },
+      { metric: '3.23%', label: 'CTR' },
+      { metric: '60%+', label: 'Booked rate' },
     ],
-    tags: ['Full-Stack', 'AI Automation', 'System Integration'],
+    tags: ['Google Ads', 'Call Campaigns', 'USA'],
     gradient: 'from-premium-600 via-electric-600 to-premium-600',
   },
 ]
@@ -105,7 +104,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="inline-flex items-center space-x-2 glass rounded-full px-4 py-2 mb-6"
           >
-            <span className="text-sm text-premium-400 font-medium">Portfolio</span>
+            <span className="text-sm text-premium-400 font-medium">Verified Results</span>
           </motion.div>
 
           <motion.h2
@@ -114,7 +113,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Results That <span className="gradient-text">Speak</span>
+            Case Studies <span className="gradient-text">You Can Verify</span>
           </motion.h2>
 
           <motion.p
@@ -123,7 +122,7 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="text-xl text-gray-400"
           >
-            Real projects. Real metrics. Real competitive advantages built for clients who demand excellence.
+            Platform dashboards. Real clients. Numbers you can check.
           </motion.p>
         </div>
 
@@ -150,7 +149,7 @@ export default function Portfolio() {
                         <Icon className="w-8 h-8 text-white" />
                       </div>
                       <div className="text-right">
-                        <div className="text-sm text-gray-500">{study.client}</div>
+                        <div className="text-sm text-gray-400 font-semibold">{study.client}</div>
                         <div className="text-xs text-gray-600">{study.industry}</div>
                       </div>
                     </div>
@@ -215,10 +214,13 @@ export default function Portfolio() {
 
                     {/* CTA */}
                     <div className="mt-8">
-                      <button className="group w-full glass hover:bg-white/10 text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2">
-                        <span>View Full Case Study</span>
+                      <a
+                        href="#contact"
+                        className={`group w-full glass hover:bg-gradient-to-r hover:${study.gradient} text-white px-6 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2`}
+                      >
+                        <span>Request Full Breakdown</span>
                         <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
