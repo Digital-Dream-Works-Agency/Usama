@@ -174,3 +174,13 @@ html { scroll-behavior: smooth; }
 .bg-gradient-to-r.from-premium-600 {
   color: white !important;
 }
+
+/* Fix hero gradient text in light mode */
+.light .bg-gradient-to-r.bg-clip-text {
+  filter: brightness(0.85) saturate(1.2);
+}
+
+/* Ensure gradient text metrics are visible in light mode */
+.light [class*="bg-gradient-to-r"][class*="bg-clip-text"][class*="text-transparent"] {
+  filter: brightness(0.8) saturate(1.3);
+}
